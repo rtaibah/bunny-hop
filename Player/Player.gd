@@ -7,6 +7,7 @@ const GRAVITY = 150
 const UP = Vector2(0,-1)
 const JUMP_SPEED = 3500
 const WORLD_LIMIT = 3000
+const BOOST_MULTIPLIER = 1.5
 
 var lives = 3
 
@@ -64,3 +65,10 @@ func hurt():
 	$PainSFX.play()
 	if lives < 0:
 		game_over()
+		
+
+func boost():
+	print("I am running")
+	motion.y -= 1
+	yield(get_tree(), "idle_frame")
+	motion.y -= JUMP_SPEED * BOOST_MULTIPLIER

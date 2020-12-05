@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Tileset.tres" type="TileSet" id=2]
 [ext_resource path="res://Hazards/SpikesTop.tscn" type="PackedScene" id=3]
 [ext_resource path="res://SFX/Chiptune_Adventures_1.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Items/JumpPad.tscn" type="PackedScene" id=5]
 
 [node name="Level1" type="Node2D"]
 position = Vector2( -1697.06, -203.646 )
@@ -29,6 +30,35 @@ position = Vector2( 1013.06, 609.622 )
 
 [node name="SpikesTop3" parent="Hazards" instance=ExtResource( 3 )]
 position = Vector2( 1810.05, 1445.61 )
+
+[node name="JumpPads" type="Node" parent="."]
+
+[node name="JumpPad" parent="JumpPads" instance=ExtResource( 5 )]
+position = Vector2( 666.095, 485.075 )
+
+[node name="JumpPad2" parent="JumpPads" instance=ExtResource( 5 )]
+position = Vector2( 1599.48, -222.032 )
+
+[node name="JumpPad3" parent="JumpPads" instance=ExtResource( 5 )]
+position = Vector2( 3169.25, 923.482 )
+
+[node name="JumpPad4" parent="JumpPads" instance=ExtResource( 5 )]
+position = Vector2( 3523.94, -222.032 )
+
+[node name="JumpPad5" parent="JumpPads" instance=ExtResource( 5 )]
+position = Vector2( 5449.53, 514.491 )
+
+[node name="JumpPad6" parent="JumpPads" instance=ExtResource( 5 )]
+position = Vector2( 7862.18, 871.439 )
+
+[node name="JumpPad7" parent="JumpPads" instance=ExtResource( 5 )]
+position = Vector2( 9661.63, 1704.69 )
+
+[node name="JumpPad8" parent="JumpPads" instance=ExtResource( 5 )]
+position = Vector2( 11631.9, 673.448 )
+
+[node name="JumpPad9" parent="JumpPads" instance=ExtResource( 5 )]
+position = Vector2( 8987.89, 231.648 )
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
