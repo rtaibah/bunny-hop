@@ -9,7 +9,6 @@ const JUMP_SPEED = 3500
 const WORLD_LIMIT = 3000
 const BOOST_MULTIPLIER = 1.5
 
-var lives = 3
 
 signal animate
 
@@ -23,7 +22,7 @@ func _physics_process(delta):
 	
 func apply_gravity():
 	if position.y > WORLD_LIMIT:
-		game_over()
+			get_tree().call_group("Gamestate","end_game")
 	if  is_on_floor():
 		motion.y = 0
 	elif is_on_ceiling():
@@ -49,10 +48,6 @@ func move():
 func animate():
 	emit_signal("animate", motion)
 #
-#
-func game_over():
-	get_tree().change_scene("res://Levels/GameOver.tscn")
-
 
 func hurt():
 	# Move up a pixel to bypass gravity
@@ -61,10 +56,8 @@ func hurt():
 	# So we are waiting for a signal from get_tree that is an "idle_frame"
 	yield(get_tree(), "idle_frame")
 	motion.y -= JUMP_SPEED
-	lives -= 1
 	$PainSFX.play()
-	if lives < 0:
-		game_over()
+
 		
 
 func boost():
