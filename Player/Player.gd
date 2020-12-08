@@ -23,7 +23,7 @@ func _physics_process(delta):
 func apply_gravity():
 	if position.y > WORLD_LIMIT:
 			get_tree().call_group("Gamestate","end_game")
-	if  is_on_floor():
+	elif  is_on_floor() and motion.y > 0 :
 		motion.y = 0
 	elif is_on_ceiling():
 		motion.y = 1
@@ -55,7 +55,7 @@ func hurt():
 	# Stop doing anything for one frame only.
 	# So we are waiting for a signal from get_tree that is an "idle_frame"
 	yield(get_tree(), "idle_frame")
-	motion.y -= JUMP_SPEED
+	motion.y = -JUMP_SPEED
 	$PainSFX.play()
 
 		
