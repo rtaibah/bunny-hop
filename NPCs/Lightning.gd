@@ -14,7 +14,6 @@ func _process(delta):
 
 func manage_collision():
 	var collider = $Area2D.get_overlapping_bodies()
-	print(collider)
 	
 	for object in collider:
 		if object.name == "Player":
