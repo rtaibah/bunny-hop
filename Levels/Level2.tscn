@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Levels/Tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://GUI/GUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://SFX/Summer_Park.ogg" type="AudioStream" id=4]
 
+[sub_resource type="GDScript" id=1]
+script/source = "extends \"res://Levels/GameState.gd\"
+"
+
 [node name="Level2" type="Node2D"]
+script = SubResource( 1 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 539.711, 898.053 )

@@ -32,8 +32,10 @@ func life_up():
 	update_GUI()
 	
 func new_level():
+	level_number += 1
+	get_tree().change_scene("res://Levels/Level"+str(level_number)+".tscn")
+
 	print(level_number)
-	get_tree().change_scene("res://Levels/Level2.tscn")
 	
 func end_game():
 	get_tree().change_scene("res://Levels/GameOver.tscn")
