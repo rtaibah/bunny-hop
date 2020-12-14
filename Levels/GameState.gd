@@ -3,6 +3,7 @@ extends Node2D
 var lives = 4
 var coins = 0
 var target_number_of_coins = 10
+var level_number = 1
 
 func _ready():
 	add_to_group("Gamestate")
@@ -30,6 +31,9 @@ func life_up():
 	lives += 1
 	update_GUI()
 	
+func new_level():
+	print(level_number)
+	get_tree().change_scene("res://Levels/Level2.tscn")
 	
 func end_game():
 	get_tree().change_scene("res://Levels/GameOver.tscn")
