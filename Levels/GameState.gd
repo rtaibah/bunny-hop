@@ -4,6 +4,7 @@ var lives = 4
 var coins = 0
 var target_number_of_coins = 10
 var level_number = 1
+const FINAL_LEVEL = 2
 
 func _ready():
 	add_to_group("Gamestate")
@@ -32,10 +33,11 @@ func life_up():
 	update_GUI()
 	
 func new_level():
-	level_number += 1
+	level_number = level_number + 1
 	get_tree().change_scene("res://Levels/Level"+str(level_number)+".tscn")
+		
+		
 
-	print(level_number)
 	
 func end_game():
 	get_tree().change_scene("res://Levels/GameOver.tscn")

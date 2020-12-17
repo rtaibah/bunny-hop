@@ -12,6 +12,5 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 polygon = PoolVector2Array( -33.1974, -26.2074, -46.6324, 25.7649, 48.1199, 27.1791, 32.9171, -26.2074 )
 [connection signal="body_entered" from="." to="." method="_on_SpikesTop_body_entered"]
