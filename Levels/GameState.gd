@@ -45,7 +45,7 @@ func end_game():
 	get_tree().change_scene("res://Levels/GameOver.tscn")
 	
 	
-func win_game():
+func win_game():	
 	reset_vars()
 	get_tree().change_scene("res://Levels/Victory.tscn")
 	
