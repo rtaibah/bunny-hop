@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fall.wav-bbfc28697ce678874a2cf2c986e54d13.sample"
+
+[deps]
+
+source_file="res://SFX/fall.wav"
+dest_files=[ "res://.import/fall.wav-bbfc28697ce678874a2cf2c986e54d13.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

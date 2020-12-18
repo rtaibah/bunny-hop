@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Levels/FellToDeath.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/candles_.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://GFX/Background/bg_layer1.png" type="Texture" id=3]
+[ext_resource path="res://SFX/fall.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -48,6 +49,10 @@ __meta__ = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 2.0
 autostart = true
+
+[node name="Fall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+[connection signal="ready" from="." to="." method="_on_FellToDeath_ready"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
