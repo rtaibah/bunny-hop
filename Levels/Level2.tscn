@@ -10,14 +10,17 @@
 [ext_resource path="res://Items/Portal.tscn" type="PackedScene" id=8]
 
 [sub_resource type="GDScript" id=1]
-script/source = "extends \"res://Levels/GameState.gd\"
+script/source = "extends \"res://Levels/GameState.gd\"	
 "
 
 [node name="Level2" type="Node2D"]
 script = SubResource( 1 )
 
+[node name="Spikeman" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1821.51, 1530.18 )
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 536.883, 900.881 )
+position = Vector2( 1094.08, 711.377 )
 
 [node name="GUI" parent="." instance=ExtResource( 2 )]
 
@@ -124,14 +127,3 @@ position = Vector2( 19895.2, -135.765 )
 
 [node name="Cloud2" parent="Clouds" instance=ExtResource( 7 )]
 position = Vector2( 22078.7, -118.794 )
-
-[node name="Spikeman" type="Node" parent="."]
-
-[node name="Spikeman" parent="Spikeman" instance=ExtResource( 5 )]
-position = Vector2( 1798.88, 1527.35 )
-
-[node name="Spikeman2" parent="Spikeman" instance=ExtResource( 5 )]
-position = Vector2( 4936.74, 687.308 )
-
-[node name="Spikeman3" parent="Spikeman" instance=ExtResource( 5 )]
-position = Vector2( 7804.76, 687.308 )

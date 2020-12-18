@@ -19,6 +19,10 @@ config/name="Hoppy Days"
 run/main_scene="res://Levels/Level1.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+global_vars="*res://global_vars.gd"
+
 [input]
 
 left={
