@@ -23,7 +23,8 @@ func _physics_process(delta):
 func apply_gravity():
 	if position.y > WORLD_LIMIT:
 		get_tree().call_group("Gamestate","hurt")
-		get_tree().reload_current_scene()
+		get_tree().change_scene("res://Levels/FellToDeath.tscn")
+		
 	elif  is_on_floor() and motion.y > 0 :
 		motion.y = 0
 	elif is_on_ceiling():

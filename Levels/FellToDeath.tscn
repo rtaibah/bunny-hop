@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/FellToDeath.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/candles_.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://GFX/Background/bg_layer1.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_color = Color( 0.796078, 0.545098, 0.913725, 1 )
+font_data = ExtResource( 2 )
+
+[node name="FellToDeath" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_bottom = 7.32422e-06
+margin_top = 1.41425
+margin_right = 2048.0
+margin_bottom = 2049.41
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -502.0
+margin_top = -301.0
+margin_right = 522.0
+margin_bottom = 300.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.737255, 0.443137, 0.878431, 1 )
+text = "YOU FELL TO YOUR DEATH"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
