@@ -34,7 +34,7 @@ func life_up():
 func new_level():
 	if global_vars.level_number == global_vars.FINAL_LEVEL:
 		print("VICTORY")
-		get_tree().change_scene("res://Levels/Vicotry.tscn")
+		get_tree().change_scene("res://Levels/Victory.tscn")
 		
 	elif global_vars.level_number < global_vars.FINAL_LEVEL:
 		global_vars.level_number += 1
