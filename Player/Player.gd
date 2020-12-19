@@ -57,12 +57,19 @@ func hurt():
 	# Stop doing anything for one frame only.
 	# So we are waiting for a signal from get_tree that is an "idle_frame"
 	yield(get_tree(), "idle_frame")
-	motion.y = -JUMP_SPEED
+	if Input.is_action_pressed("jump"):
+		motion.y = -JUMP_SPEED/2
+	else:
+		motion.y = -JUMP_SPEED	
 	$PainSFX.play()
 
 		
 
 func boost():
+
 	motion.y -= 1
 	yield(get_tree(), "idle_frame")
-	motion.y -= JUMP_SPEED * BOOST_MULTIPLIER
+	if Input.is_action_pressed("jump"):
+		motion.y -= (JUMP_SPEED /2) * BOOST_MULTIPLIER
+	else:
+		motion.y -= JUMP_SPEED  * BOOST_MULTIPLIER
