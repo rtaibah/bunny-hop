@@ -27,6 +27,7 @@ func coin_up():
 		
 		
 func life_up():
+	$Player/LevelUp.play()
 	global_vars.lives += 1
 	update_GUI()
 	

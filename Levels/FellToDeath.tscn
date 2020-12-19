@@ -1,14 +1,41 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Levels/FellToDeath.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/candles_.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://GFX/Background/bg_layer1.png" type="Texture" id=3]
 [ext_resource path="res://SFX/fall.wav" type="AudioStream" id=4]
+[ext_resource path="res://GFX/Players/bunny2_walk1.png" type="Texture" id=5]
+[ext_resource path="res://GFX/Players/bunny2_walk2.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
 outline_color = Color( 0.796078, 0.545098, 0.913725, 1 )
 font_data = ExtResource( 2 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "New Anim"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 501, 555.897 ), Vector2( 501.5, 555.897 ), Vector2( 1200, 555.897 ) ]
+}
 
 [node name="FellToDeath" type="Control"]
 anchor_right = 1.0
@@ -31,16 +58,17 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.458
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.458
 margin_left = -502.0
-margin_top = -301.0
+margin_top = -274.12
 margin_right = 522.0
-margin_bottom = 300.0
+margin_bottom = 326.88
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.737255, 0.443137, 0.878431, 1 )
-text = "YOU FELL TO YOUR DEATH"
+text = "OUCH! 
+Let's Try Again"
 align = 1
 valign = 1
 autowrap = true
@@ -54,5 +82,19 @@ autostart = true
 
 [node name="Fall" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
+[node name="Node" type="Node" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node"]
+position = Vector2( 501, 555.897 )
+scale = Vector2( 0.809918, 0.809918 )
+frames = SubResource( 3 )
+animation = "walk"
+frame = 1
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 2 )
 [connection signal="ready" from="." to="." method="_on_FellToDeath_ready"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
